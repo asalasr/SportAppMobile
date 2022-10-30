@@ -1,9 +1,9 @@
-package com.example.SportApp.ui
+package com.example.sportapp.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.SportApp.R
+import com.example.sportapp.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class PerfilActivity : AppCompatActivity() {

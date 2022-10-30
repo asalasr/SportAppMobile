@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/nav_entrenar"
+app:startDestination="@id/entrenarFragment">
+
+<fragment
+    android:id="@+id/entrenarFragment"
+    android:name="com.example.sportapp.ui.EntrenarListarFragment"
+    android:label="fragment_collector"
+    tools:layout="@layout/fragment_entrenar_listar">
+    <action
+        android:id="@+id/action_entrenarFragment_to_entrenarDetalle"
+        app:destination="@id/detallePlan"
+        />
+</fragment>
+<fragment
+    android:id="@+id/detallePlan"
+    android:name="com.example.sportapp.ui.EntrenarDetalleFragment"
+    android:label="collector_detail_fragment"
+    tools:layout="@layout/fragment_entrenar_detalle" >
+    <argument
+        android:name="plan"
+        app:argType="com.example.sportapp.models.AsignarDetallePlan"
+        />
+</fragment>
+</navigation>
