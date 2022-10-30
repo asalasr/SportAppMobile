@@ -14,29 +14,52 @@
         android:paddingBottom="16dp">
 
         <TextView
-            android:id="@+id/collectorName"
+            android:id="@+id/entrenarDia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/collectorEmail"
+            android:id="@+id/entrenarEstado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/collectorPhone"
+            android:id="@+id/entrenarMarcaStreet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/albumsTitle"
+            android:id="@+id/entrenarFechaInicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Albums:" />
+            android:text="TextView" />
 
+        <TextView
+            android:id="@+id/entrenarFechaFin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/entrenarCalorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/entrenarVelocidadMaxima"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/entrenarDistanciaRecorrida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
     </LinearLayout>
 
