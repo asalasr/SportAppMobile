@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sportapp.ui.adapters.EntrenamientoAdapter
+import com.example.sportapp.adapters.EntrenamientoAdapter
 import com.example.sportapp.databinding.FragmentEntrenarListarBinding
 import com.example.sportapp.models.AsignarDetallePlan
 import com.example.sportapp.viewmodels.EntrenamientoViewModel
