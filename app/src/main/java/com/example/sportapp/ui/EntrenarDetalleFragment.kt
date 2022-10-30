@@ -29,14 +29,24 @@ class EntrenarDetalleFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        var collector: AsignarDetallePlan = arguments?.get("plan") as AsignarDetallePlan
+        var plan: AsignarDetallePlan = arguments?.get("plan") as AsignarDetallePlan
 
-        val name: TextView? = view?.findViewById(R.id.collectorName)
-        name!!.text= "Nombre:  "+collector.numDia
-        val email: TextView? = view?.findViewById(R.id.collectorEmail)
-        email!!.text= "Email:  "+collector.marcaStreet
-        val phone: TextView? = view?.findViewById(R.id.collectorPhone)
-        phone!!.text= "Phone:  "+collector.estado
+        val entrenarDia: TextView? = view?.findViewById(R.id.entrenarDia)
+        entrenarDia!!.text= "Dia:  "+plan.numDia
+        val entrenarEstado: TextView? = view?.findViewById(R.id.entrenarEstado)
+        entrenarEstado!!.text= "Estado:  "+plan.estado
+        val entrenarMarcaStreet: TextView? = view?.findViewById(R.id.entrenarMarcaStreet)
+        entrenarMarcaStreet!!.text= "Lugar:  "+plan.marcaStreet
+        val entrenarFechaInicio: TextView? = view?.findViewById(R.id.entrenarFechaInicio)
+        entrenarFechaInicio!!.text= "Fecha Inicio:  "+plan.fechaInicio
+        val entrenarFechaFin: TextView? = view?.findViewById(R.id.entrenarFechaFin)
+        entrenarFechaFin!!.text= "Fecha Fin:  "+plan.fechaFin
+        val entrenarCalorias: TextView? = view?.findViewById(R.id.entrenarCalorias)
+        entrenarCalorias!!.text= "Calorias:  "+plan.calorias
+        val entrenarVelocidadMaxima: TextView? = view?.findViewById(R.id.entrenarVelocidadMaxima)
+        entrenarVelocidadMaxima!!.text= "Calorias:  "+plan.velocidadMaxima
+        val entrenarDistanciaRecorrida: TextView? = view?.findViewById(R.id.entrenarDistanciaRecorrida)
+        entrenarDistanciaRecorrida!!.text= "Calorias:  "+plan.distanciaRecorrida
 
     }
 

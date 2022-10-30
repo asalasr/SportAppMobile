@@ -52,7 +52,7 @@ class EntrenamientoService constructor(context: Context)  {
                         ids = item.getString("id"),
                         idDeportista = item.getString("idDeportista"),
                         idDetallePlan = item.getString("idDetallePlan"),
-                        numDia = item.getInt("numDia"),
+                        numDia = item.getString("numdia"),
                         marcaStreet = item.getString("marcaStreet"),
                         estado = item.getString("estado"),
                         fechaInicio = item.getString("fechaInicio"),
