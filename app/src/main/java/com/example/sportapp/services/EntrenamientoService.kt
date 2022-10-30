@@ -2,6 +2,7 @@ package com.example.sportapp.services
 
 import android.content.Context
 import android.util.Log
+import com.android.volley.Header
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -32,7 +33,8 @@ class EntrenamientoService constructor(context: Context)  {
     fun getAsignarDetallePlan(onComplete:(resp:List<AsignarDetallePlan>)->Unit, onError: (error: VolleyError)->Unit) {
         Log.i("NetworkServices","LLEGO ENDPOINT")
 
-        requestQueue.add(getRequest("asignar-detalle-plan/deportista",
+
+        requestQueue.add(getRequest("planentrenamiento/asignar-detalle-plan/deportista",
             Response.Listener<String> { response ->
                 Log.d("tagb", response)
                 val resp = JSONArray(response)
@@ -40,11 +42,11 @@ class EntrenamientoService constructor(context: Context)  {
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
 
-                    val idAsignarPlanId = item.getJSONArray("idAsignarPlanId")
-                    val PlanId: MutableList<Int> = ArrayList()
-                    for (j in 0 until idAsignarPlanId.length()) {
-                        PlanId.add(j,idAsignarPlanId.getJSONObject(j).getString("id").toInt())
-                    }
+                    //val idAsignarPlanId = item.getJSONArray("AsignarPlan")
+                    //val PlanId: MutableList<Int> = ArrayList()
+                    //for (j in 0 until idAsignarPlanId.length()) {
+                      //  PlanId.add(j,idAsignarPlanId.getJSONObject(j).getString("id").toInt())
+                    //}
 
                     list.add(i, AsignarDetallePlan(
                         ids = item.getString("id"),
@@ -68,12 +70,23 @@ class EntrenamientoService constructor(context: Context)  {
             Response.ErrorListener {
                 onError(it)
                 Log.d("Error get Entrenamiento", it.message.toString())
-            }))
+            },
+        ))
+
     }
 
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
-        return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
+        //return StringRequest(Request.Method.GET, BASE_URL + path, responseListener, errorListener)
+        val stringRequest = object: StringRequest(Request.Method.GET, BASE_URL + path, responseListener, errorListener){
+            override fun getHeaders(): MutableMap<String, String> {
+                val headers = HashMap<String, String>()
+                headers["user_id"] = "44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb"
+                return headers
+            }
+        }
+        return stringRequest
     }
+
     private fun postRequest(path: String, body: JSONObject, responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ): JsonObjectRequest {
         return  JsonObjectRequest(Request.Method.POST, BASE_URL+path, body, responseListener, errorListener)
     }
