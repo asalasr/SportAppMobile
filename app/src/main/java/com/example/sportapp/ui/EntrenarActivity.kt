@@ -1,20 +1,27 @@
-package com.example.SportApp.ui
+package com.example.sportapp.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.SportApp.R
+import android.util.Log
+import com.example.sportapp.R
+import com.example.sportapp.viewmodels.EntrenamientoViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class EntrenarActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView;
 
+    private lateinit var viewModel: EntrenamientoViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entrenar)
+        val titleMenu: String = "ENTRENAMIENTO"
+        setTitle(titleMenu);
+        Log.i("NetworkServices","entra A activityEntrenar")
 
-        bottomNavigationView = findViewById(R.id.bottom_navigator);
+     /*   bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.entrenar);
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -40,6 +47,6 @@ class EntrenarActivity : AppCompatActivity() {
                 }
             }
             true
-        }
+        }*/
     }
 }

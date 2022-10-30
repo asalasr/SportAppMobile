@@ -1,10 +1,10 @@
-package com.example.SportApp.ui
+package com.example.sportapp.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
-import com.example.SportApp.R
+import android.util.Log
+import com.example.sportapp.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.i("NetworkServices","entra a escoger")
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.entrenar);
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
