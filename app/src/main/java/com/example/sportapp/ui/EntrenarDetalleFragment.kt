@@ -25,28 +25,26 @@ class EntrenarDetalleFragment : Fragment() {
         return view
     }
 
-
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         var plan: AsignarDetallePlan = arguments?.get("plan") as AsignarDetallePlan
 
         val entrenarDia: TextView? = view?.findViewById(R.id.entrenarDia)
-        entrenarDia!!.text= "Dia:  "+plan.numDia
+        entrenarDia!!.text= "Dia: "+plan.numDia
         val entrenarEstado: TextView? = view?.findViewById(R.id.entrenarEstado)
-        entrenarEstado!!.text= "Estado:  "+plan.estado
+        entrenarEstado!!.text= "Estado: "+plan.estado
         val entrenarMarcaStreet: TextView? = view?.findViewById(R.id.entrenarMarcaStreet)
-        entrenarMarcaStreet!!.text= "Lugar:  "+plan.marcaStreet
+        entrenarMarcaStreet!!.text= "Lugar: "+plan.marcaStreet
         val entrenarFechaInicio: TextView? = view?.findViewById(R.id.entrenarFechaInicio)
-        entrenarFechaInicio!!.text= "Fecha Inicio:  "+plan.fechaInicio
+        entrenarFechaInicio!!.text= "Fecha Inicio: "+plan.fechaInicio
         val entrenarFechaFin: TextView? = view?.findViewById(R.id.entrenarFechaFin)
-        entrenarFechaFin!!.text= "Fecha Fin:  "+plan.fechaFin
+        entrenarFechaFin!!.text= "Fecha Fin: "+plan.fechaFin
         val entrenarCalorias: TextView? = view?.findViewById(R.id.entrenarCalorias)
-        entrenarCalorias!!.text= "Calorias:  "+plan.calorias
+        entrenarCalorias!!.text= "Calorias: "+plan.calorias
         val entrenarVelocidadMaxima: TextView? = view?.findViewById(R.id.entrenarVelocidadMaxima)
-        entrenarVelocidadMaxima!!.text= "Calorias:  "+plan.velocidadMaxima
+        entrenarVelocidadMaxima!!.text= "Velocidad: "+plan.velocidadMaxima
         val entrenarDistanciaRecorrida: TextView? = view?.findViewById(R.id.entrenarDistanciaRecorrida)
-        entrenarDistanciaRecorrida!!.text= "Calorias:  "+plan.distanciaRecorrida
+        entrenarDistanciaRecorrida!!.text= "Distancia: "+plan.distanciaRecorrida
 
     }
 

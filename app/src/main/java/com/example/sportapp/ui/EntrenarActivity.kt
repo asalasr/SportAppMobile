@@ -21,7 +21,7 @@ class EntrenarActivity : AppCompatActivity() {
         setTitle(titleMenu);
         Log.i("NetworkServices","entra A activityEntrenar")
 
-     /*   bottomNavigationView = findViewById(R.id.bottom_navigator);
+        bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.entrenar);
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -47,6 +47,6 @@ class EntrenarActivity : AppCompatActivity() {
                 }
             }
             true
-        }*/
+        }
     }
 }
