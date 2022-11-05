@@ -19,7 +19,7 @@ class EntrenarActivity : AppCompatActivity() {
         setContentView(R.layout.activity_entrenar)
         val titleMenu: String = "ENTRENAMIENTO"
         setTitle(titleMenu);
-        Log.i("NetworkServices","entra A activityEntrenar")
+        Log.i("EntrenarActivity","entra a onCreate")
 
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.entrenar);

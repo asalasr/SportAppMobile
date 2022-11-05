@@ -45,7 +45,7 @@ class EntrenarListarFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        Log.i("NetworkServices","LLEGO a consultar ENDPOINT")
+        Log.i("EntrenarListarFragment","Habilita los Observe")
         viewModel = ViewModelProvider(this, EntrenamientoViewModel.Factory(activity.application)).get(
             EntrenamientoViewModel::class.java
         )

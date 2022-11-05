@@ -12,8 +12,8 @@ data class AsignarDetallePlan(
     val estado:String,
     val fechaInicio: String,
     val fechaFin: String,
-    val calorias: Int,
-    val velocidadMaxima: Int,
-    val distanciaRecorrida:Int,
+    val calorias: Double,
+    val velocidadMaxima: Double,
+    val distanciaRecorrida:Double,
     val idAsignarPlanId:String
 ): Serializable

@@ -11,4 +11,12 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lblfechainicio">Fecha Inicio</string>
+    <string name="lblfechafin">Fecha Fin</string>
+    <string name="lblcalorias">Calorias</string>
+    <string name="lblVelocidadMaxima">Velocidad Maxima</string>
+    <string name="lblDistanciaRecorrida">Distancia Recorrida</string>
+    <string name="lblguardar">Guardar</string>
+    <string name="Plan_diario_actualizado">Plan diario actualizado</string>
+    <string name="Actualizacion_fallida">Actualizacion fallida</string>
 </resources>

@@ -33,7 +33,7 @@
                     android:id="@+id/textViewL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{`Dia ` + asignarDetallePlan.numDia + `   - `+ asignarDetallePlan.estado}"
+                    android:text="@{`DIA ` + asignarDetallePlan.numDia + `   - `+ asignarDetallePlan.estado}"
                     android:textStyle="bold" />
 
                 <TextView
