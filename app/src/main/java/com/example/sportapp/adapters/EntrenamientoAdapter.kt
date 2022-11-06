@@ -14,7 +14,7 @@ import com.example.sportapp.ui.EntrenarListarFragmentDirections
 
 
 
-class EntrenamientoAdapter : RecyclerView.Adapter<EntrenamientoAdapter.EntrenamientoViewHolder>() {
+class  EntrenamientoAdapter : RecyclerView.Adapter<EntrenamientoAdapter.EntrenamientoViewHolder>() {
 
     var collectors: List<AsignarDetallePlan> = emptyList()
         set(value) {
@@ -37,9 +37,6 @@ class EntrenamientoAdapter : RecyclerView.Adapter<EntrenamientoAdapter.Entrenami
             it.asignarDetallePlan = collectors[position]
         }
         holder.viewDataBinding.root.setOnClickListener {
-
-            // Navigate using that action
-            //  holder.viewDataBinding.root.findNavController().navigate(action)
             Log.i("Clic en un dia", "se dio clic en el dia:" + collectors[position].numDia)
             val coll = collectors[position]
             Log.i("test", coll.toString())
