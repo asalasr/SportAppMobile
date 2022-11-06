@@ -37,9 +37,13 @@ class  EntrenamientoAdapter : RecyclerView.Adapter<EntrenamientoAdapter.Entrenam
             it.asignarDetallePlan = collectors[position]
         }
         holder.viewDataBinding.root.setOnClickListener {
-            Log.i("Clic en un dia", "se dio clic en el dia:" + collectors[position].numDia)
+
+            // Navigate using that action
+            //  holder.viewDataBinding.root.findNavController().navigate(action)
+            Log.i("EntrenamientoAdapter", "se dio clic en el dia:" + collectors[position].numDia)
+
             val coll = collectors[position]
-            Log.i("test", coll.toString())
+            Log.i("EntrenamientoAdapter", coll.toString())
             val action = EntrenarListarFragmentDirections.actionEntrenarFragmentToEntrenarDetalle(
                 coll
             )
