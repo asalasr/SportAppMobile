@@ -6,23 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sportapp.R
 import com.example.sportapp.adapters.EventoAdapter
 import com.example.sportapp.databinding.FragmentEventoListarBinding
-import com.example.sportapp.models.Evento
-import com.example.sportapp.viewmodels.EventoViewModel
+import com.example.sportapp.models.Eventos
+import com.example.sportapp.viewmodels.EventosViewModel
 
 class EventoListarFragment : Fragment() {
     private var _binding: FragmentEventoListarBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    private lateinit var viewModel: EventoViewModel
+    private lateinit var viewModel: EventosViewModel
     private var viewModelAdapter: EventoAdapter? = null
 
     override fun onCreateView(
@@ -36,7 +34,7 @@ class EventoListarFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = binding.fragmentsRvcollector
+        recyclerView = binding.fragmentsRvevento
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
     }
@@ -48,10 +46,10 @@ class EventoListarFragment : Fragment() {
             "You can only access the viewModel after onActivityCreated()"
         }
         Log.i("NetworkServices","LLEGO a consultar ENDPOINT")
-        viewModel = ViewModelProvider(this, EventoViewModel.Factory(activity.application)).get(
-            EventoViewModel::class.java
+        viewModel = ViewModelProvider(this, EventosViewModel.Factory(activity.application)).get(
+            EventosViewModel::class.java
         )
-        viewModel.eventovm.observe(viewLifecycleOwner, Observer<List<Evento>> {
+        viewModel.eventovm.observe(viewLifecycleOwner, Observer<List<Eventos>> {
             it.apply {
                 viewModelAdapter!!.collectors = this
             }

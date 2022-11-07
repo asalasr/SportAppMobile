@@ -9,14 +9,14 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sportapp.R
 import com.example.sportapp.databinding.EventoItemBinding
-import com.example.sportapp.models.Evento
+import com.example.sportapp.models.Eventos
 import com.example.sportapp.ui.EventoListarFragmentDirections
 
 
 
 class  EventoAdapter : RecyclerView.Adapter<EventoAdapter.EventoViewHolder>() {
 
-    var collectors: List<Evento> = emptyList()
+    var collectors: List<Eventos> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -34,12 +34,12 @@ class  EventoAdapter : RecyclerView.Adapter<EventoAdapter.EventoViewHolder>() {
 
     override fun onBindViewHolder(holder: EventoViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            it.evento = collectors[position]
+            it.eventos = collectors[position]
         }
         holder.viewDataBinding.root.setOnClickListener {
-            Log.i("Clic en un dia", "se dio clic en el dia:" + collectors[position].register_date)
+            Log.i("EventoAdapter", "se dio clic en el evento:" + collectors[position].title)
             val coll = collectors[position]
-            Log.i("test", coll.toString())
+            Log.i("EventoAdapter", coll.toString())
             val action = EventoListarFragmentDirections.actionEventoFragmentToEventoDetalle(
                 coll
             )

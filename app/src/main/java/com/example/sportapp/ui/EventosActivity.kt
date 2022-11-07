@@ -5,14 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.sportapp.R
-import com.example.sportapp.viewmodels.EventoViewModel
+import com.example.sportapp.viewmodels.EventosViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class EventosActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView;
 
-    private lateinit var viewModel: EventoViewModel
+    private lateinit var viewModel: EventosViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -22,7 +22,7 @@ app:startDestination="@id/eventoFragment">
     tools:layout="@layout/fragment_evento_detalle" >
     <argument
         android:name="evento"
-        app:argType="com.example.sportapp.models.Evento"
+        app:argType="com.example.sportapp.models.Eventos"
         />
 </fragment>
 </navigation>

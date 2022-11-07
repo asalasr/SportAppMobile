@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="evento"
-            type="com.example.sportapp.models.Evento" />
+            name="eventos"
+            type="com.example.sportapp.models.Eventos" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,7 +33,14 @@
                     android:id="@+id/textViewL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{`Título del evento: ` + evento.event.title + `, Fecha: ` + evento.register_date}"
+                    android:text="@{ eventos.title + `,    Fecha: ` + eventos.datatime}"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewLFecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{`Estado: ` + eventos.state}"
                     android:textStyle="bold" />
 
             </LinearLayout>
