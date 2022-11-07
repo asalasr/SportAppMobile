@@ -8,8 +8,8 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.sportapp.models.Event
-import com.example.sportapp.models.Evento
+import com.example.sportapp.models.Eventos
+import com.example.sportapp.models.MisEventos
 import org.json.JSONArray
 
 class EventoService constructor(context: Context)  {
@@ -28,7 +28,40 @@ class EventoService constructor(context: Context)  {
         Volley.newRequestQueue(context.applicationContext)
     }
 
-    fun getEvento(onComplete:(resp:List<Evento>)->Unit, onError: (error: VolleyError)->Unit) {
+    fun getEventos(onComplete:(resp:List<Eventos>)->Unit, onError: (error: VolleyError)->Unit) {
+        Log.i("NetworkServices","LLEGO ENDPOINT")
+
+
+        requestQueue.add(getRequest("events",
+            Response.Listener<String> { response ->
+                Log.d("tagb", response)
+                val resp = JSONArray(response)
+                val list = mutableListOf<Eventos>()
+                val listEvent = mutableListOf<Eventos>()
+                for (i in 0 until resp.length()) {
+                    val item = resp.getJSONObject(i)
+                    Log.i("NetworkServices","LLEGO ENDPOINT 3")
+
+                    list.add(i, Eventos(
+                        id = item.getString("id"),
+                        title = item.getString("title"),
+                        body = item.getString("body"),
+                        url_image = item.getString("url_image"),
+                        datatime = item.getString("datatime"),
+                        state = item.getString("state"),
+                        )
+                    )}
+                onComplete(list)
+            },
+            Response.ErrorListener {
+                onError(it)
+                Log.d("Error get Evento", it.message.toString())
+            },
+        ))
+    }
+
+
+    fun getMisEventos(onComplete:(resp:List<MisEventos>)->Unit, onError: (error: VolleyError)->Unit) {
         Log.i("NetworkServices","LLEGO ENDPOINT")
 
 
@@ -36,24 +69,23 @@ class EventoService constructor(context: Context)  {
             Response.Listener<String> { response ->
                 Log.d("tagb", response)
                 val resp = JSONArray(response)
-                val list = mutableListOf<Evento>()
-                val listEvent = mutableListOf<Event>()
+                val list = mutableListOf<MisEventos>()
+                val listEvent = mutableListOf<MisEventos>()
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
                     Log.i("NetworkServices","LLEGO ENDPOINT 3")
 
-                    list.add(i, Evento(
+                    list.add(i, MisEventos(
                         id = item.getString("id"),
                         user_id = item.getString("user_id"),
                         register_date = item.getString("register_date"),
-                         event = Event(
+                        event = Eventos(
                             id = item.getJSONObject("event").getString("id"),
                             title = item.getJSONObject("event").getString("title"),
                             body = item.getJSONObject("event").getString("body"),
                             url_image = item.getJSONObject("event").getString("url_image"),
                             datatime = item.getJSONObject("event").getString("datatime"),
                             state = item.getJSONObject("event").getString("state"),
-                            assistants = null,
                         )
                     ))}
                 onComplete(list)
