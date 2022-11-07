@@ -3,10 +3,10 @@ package com.example.sportapp.viewmodels
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.sportapp.models.Evento
+import com.example.sportapp.models.Eventos
 import com.example.sportapp.repositories.EventoRepository
 
-class EventoViewModel  (application: Application) :  AndroidViewModel(application) {
+class EventosViewModel  (application: Application) :  AndroidViewModel(application) {
 
     //MUTABLES se utilizan para representar la fuente dinámica de datos
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
@@ -15,7 +15,7 @@ class EventoViewModel  (application: Application) :  AndroidViewModel(applicatio
 
     private var _Loanding = MutableLiveData<Boolean>(false)
 
-    private val _evento = MutableLiveData<List<Evento>>()
+    private val _evento = MutableLiveData<List<Eventos>>()
 
     //LIVE DATA representar el valor almacenado de los datos en un momento
     val isNetworkErrorShown: LiveData<Boolean>
@@ -27,7 +27,7 @@ class EventoViewModel  (application: Application) :  AndroidViewModel(applicatio
     val loanding: LiveData<Boolean>
         get() = _Loanding
 
-    val eventovm: LiveData<List<Evento>>
+    val eventovm: LiveData<List<Eventos>>
         get() = _evento
 
 
@@ -49,7 +49,7 @@ class EventoViewModel  (application: Application) :  AndroidViewModel(applicatio
     private fun refreshDataFromNetwork() {
 
         Log.i("ListCollector", "llego a consultar collector")
-        EventoRepositoryObject.refreshData({
+        EventoRepositoryObject.refreshDataEventos({
             _evento.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
@@ -61,9 +61,9 @@ class EventoViewModel  (application: Application) :  AndroidViewModel(applicatio
     //CLASS FACTORY crea la instancia del ViewModel
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(EventoViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(EventosViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return EventoViewModel(app) as T
+                return EventosViewModel(app) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }

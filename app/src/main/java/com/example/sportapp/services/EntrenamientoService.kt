@@ -147,7 +147,7 @@ class EntrenamientoService constructor(context: Context)  {
         val stringRequest = object: StringRequest(Request.Method.GET, BASE_URL + path, responseListener, errorListener){
             override fun getHeaders(): MutableMap<String, String> {
                 val headers = HashMap<String, String>()
-                headers["user_id"] = "44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb"
+                headers["user_id"] = "9920d31e-efa4-4b35-8d28-762bea2b6610"
                 return headers
             }
         }

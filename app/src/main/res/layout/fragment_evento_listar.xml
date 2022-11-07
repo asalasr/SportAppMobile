@@ -7,7 +7,7 @@
     tools:context=".ui.EventoListarFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/fragments_rvcollector"
+        android:id="@+id/fragments_rvevento"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
