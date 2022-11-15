@@ -29,7 +29,7 @@ class EventoService constructor(context: Context)  {
     }
 
     fun getEventos(onComplete:(resp:List<Eventos>)->Unit, onError: (error: VolleyError)->Unit) {
-        Log.i("NetworkServices","LLEGO ENDPOINT")
+        Log.i("NetworkServices","LLEGO ENDPOINT getEventos")
 
 
         requestQueue.add(getRequest("events",
@@ -40,7 +40,7 @@ class EventoService constructor(context: Context)  {
                 val listEvent = mutableListOf<Eventos>()
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
-                    Log.i("NetworkServices","LLEGO ENDPOINT 3")
+                    Log.i("NetworkServices","LLEGO ENDPOINT getEventos")
 
                     list.add(i, Eventos(
                         id = item.getString("id"),
@@ -73,7 +73,7 @@ class EventoService constructor(context: Context)  {
                 val listEvent = mutableListOf<MisEventos>()
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
-                    Log.i("NetworkServices","LLEGO ENDPOINT 3")
+                    Log.i("NetworkServices","LLEGO ENDPOINT getMisEventos")
 
                     list.add(i, MisEventos(
                         id = item.getString("id"),
