@@ -54,6 +54,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name="com.example.sportapp.ui.DetallePlanActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name="com.example.sportapp.ui.MainActivity"
             android:exported="true">
             <intent-filter>
