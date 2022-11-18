@@ -47,13 +47,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.CalendarioActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ui.EntrenarActivity"
             android:exported="false">
             <meta-data
