@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/nav_detalle_plan"
+app:startDestination="@id/nivelFragment">
+
+<fragment
+    android:id="@+id/nivelFragment"
+    android:name="com.example.sportapp.ui.DetallePlanListarFragment"
+    android:label="fragment_collector"
+    tools:layout="@layout/fragment_plan_entrenamiento_listar">
+    <action
+        android:id="@+id/action_nivelFragment_to_detallePlan"
+        app:destination="@id/detallePlanFragment"
+        />
+</fragment>
+<fragment
+    android:id="@+id/detallePlanFragment"
+    android:name="com.example.sportapp.ui.DetallePlanListarFragment"
+    android:label="collector_detail_fragment"
+    tools:layout="@layout/fragment_plan_entrenamiento_listar" >
+    <argument
+        android:name="evento"
+        app:argType="com.example.sportapp.models.Eventos"
+        />
+</fragment>
+</navigation>

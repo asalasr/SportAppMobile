@@ -3,29 +3,26 @@ package com.example.sportapp.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.sportapp.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class NivelActivity : AppCompatActivity() {
+class DetallePlanActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nivel)
-        val titleMenu: String = "NIVEL"
+        val titleMenu: String = "AVANCE DEPORTIVO"
         setTitle(titleMenu);
-
-        val intento1 = Intent(this, DetallePlanActivity::class.java)
-        startActivity(intento1)
-
 
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.nivel);
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.calendario -> {
-                    val obja = Intent(this, CalendarActivity::class.java)
+                R.id.nivel -> {
+                    val obja = Intent(this, NivelActivity::class.java)
                     startActivity(obja)
                     true;
                 }
@@ -39,8 +36,9 @@ class NivelActivity : AppCompatActivity() {
                     startActivity(objc)
                     true;
                 }
-                R.id.servicios -> {
-                    val objd = Intent(this, ServiciosActivity::class.java)
+
+                R.id.calendario -> {
+                    val objd = Intent(this, CalendarioActivity::class.java)
                     startActivity(objd)
                     true;
                 }
