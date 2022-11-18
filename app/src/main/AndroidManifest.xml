@@ -12,49 +12,56 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.sportApp">
         <activity
-            android:name="com.example.sportapp.ui.EventosActivity"
+            android:name=".ui.CalendarActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.sportapp.ui.PerfilActivity"
+            android:name=".ui.EventosActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.sportapp.ui.ServiciosActivity"
+            android:name=".ui.PerfilActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.sportapp.ui.NivelActivity"
+            android:name=".ui.ServiciosActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.sportapp.ui.CalendarioActivity"
+            android:name=".ui.NivelActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.sportapp.ui.EntrenarActivity"
+            android:name=".ui.CalendarioActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.sportapp.ui.MainActivity"
+            android:name=".ui.EntrenarActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

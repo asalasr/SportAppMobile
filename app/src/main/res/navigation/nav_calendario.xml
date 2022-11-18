@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/calendarioFragment"
-        android:name="com.example.sportapp.ui.CalendarioListarFragment"
+        android:name="com.example.sportapp.ui.CalendarFragment"
         android:label="fragment_calendario"
-        tools:layout="@layout/fragment_calendario_listar">
+        tools:layout="@layout/fragment_calendar">
     </fragment>
 
 </navigation>

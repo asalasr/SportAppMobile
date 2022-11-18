@@ -41,7 +41,8 @@ class CalendarioService constructor(context: Context)  {
                 for (i in 0 until resp.length()) {
 
                     val item = resp.getJSONObject(i)
-                    if (item.getString("estado").equals("Planeado")) {
+
+                    //if (item.getString("estado")!!.equals("Planeado")) {
                         listReturn.add(i, Calendario(
                             ids = item.getString("id"),
                             fecha = item.getString("fechaInicio"),
@@ -50,7 +51,7 @@ class CalendarioService constructor(context: Context)  {
                             state = item.getString("estado"),
                             )
                         )
-                    }
+                    //}
                 }
                 onComplete(listReturn)
             },

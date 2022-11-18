@@ -7,7 +7,7 @@ import com.example.sportapp.models.Calendario
 import com.example.sportapp.repositories.CalendarioRepository
 import java.util.*
 
-class CalendarioViewModel(application: Application) :  AndroidViewModel(application)  {
+class CalendarViewModel(application: Application) :  AndroidViewModel(application)  {
 
     //MUTABLES se utilizan para representar la fuente dinámica de datos
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
@@ -48,9 +48,8 @@ class CalendarioViewModel(application: Application) :  AndroidViewModel(applicat
 
     //Se encarga de consultar activamente la información de los modelos con el manejador de peticiones de red y actualizar los LiveData respectivos
     private fun refreshDataFromNetwork() {
-
         Log.i("CalendarioViewModel", "getCaledario()")
-        calendarioRepositoryObject.getCaledario({
+        calendarioRepositoryObject.getCalendario({
             _calendario.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
@@ -62,9 +61,9 @@ class CalendarioViewModel(application: Application) :  AndroidViewModel(applicat
     //CLASS FACTORY crea la instancia del ViewModel
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(CalendarioViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(CalendarViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return CalendarioViewModel(app) as T
+                return CalendarViewModel(app) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }

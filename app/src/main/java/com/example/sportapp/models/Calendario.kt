@@ -8,4 +8,5 @@ data class Calendario (
     val actividad: String,
     val detalle: String,
     val state: String,
+
 ): Serializable

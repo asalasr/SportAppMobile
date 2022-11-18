@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.calendario -> {
-                    val obja= Intent(this, CalendarioActivity::class.java)
+                    val obja= Intent(this, CalendarActivity::class.java)
                     startActivity(obja)
                     true;
                 }
