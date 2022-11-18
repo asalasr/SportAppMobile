@@ -24,7 +24,6 @@ class ServiciosActivity : AppCompatActivity() {
         boton1.setOnClickListener {
             val intento1 = Intent(this, EventosActivity::class.java)
             startActivity(intento1)
-
         }
 
         bottomNavigationView = findViewById(R.id.bottom_navigator);
@@ -34,7 +33,7 @@ class ServiciosActivity : AppCompatActivity() {
             when (item.itemId) {
 
                 R.id.calendario -> {
-                    val obja= Intent(this, CalendarioActivity::class.java)
+                    val obja= Intent(this, CalendarActivity::class.java)
                     startActivity(obja)
                     true;
                 }

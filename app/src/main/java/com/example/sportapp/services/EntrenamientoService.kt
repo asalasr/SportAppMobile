@@ -11,12 +11,13 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.sportapp.models.AsignarDetallePlan
+import com.example.sportapp.models.Calendario
 import org.json.JSONArray
 import org.json.JSONObject
 
 class EntrenamientoService constructor(context: Context)  {
     companion object{
-        const val BASE_URL= "https://sportapp.azure-api.net/"
+        const val BASE_URL= "https://sportapp.azure-api.net/planentrenamiento/"
         var instance: EntrenamientoService? = null
         fun getInstance(context: Context) =
             instance ?: synchronized(this) {
@@ -32,7 +33,7 @@ class EntrenamientoService constructor(context: Context)  {
 
     fun getAsignarDetallePlan(onComplete:(resp:List<AsignarDetallePlan>)->Unit, onError: (error: VolleyError)->Unit) {
         Log.i("EntrenamientoService","Llego getAsignarDetallePlan")
-        requestQueue.add(getRequest("planentrenamiento/asignar-detalle-plan/deportista",
+        requestQueue.add(getRequest("asignar-detalle-plan/deportista",
             Response.Listener<String> { response ->
                 Log.d("tagb", response)
                 var cal: Double= 0.0
@@ -102,6 +103,39 @@ class EntrenamientoService constructor(context: Context)  {
 
     }
 
+    fun getCalendarioFechas(onComplete:(resp:List<Calendario>)->Unit, onError: (error: VolleyError)->Unit) {
+
+        Log.i("EntrenamientoService","Llego getCalendarioFechas")
+
+        requestQueue.add(getRequest("asignar-detalle-plan/deportista",
+            Response.Listener<String> { response ->
+
+                val resp = JSONArray(response)
+                val list = mutableListOf<Calendario>()
+                for (i in 0 until resp.length()) {
+
+                    val item = resp.getJSONObject(i)
+
+                    if (!item.getString("fechaInicio").equals("null")) {
+                        list.add(i, Calendario(
+                            ids = item.getString("id"),
+                            fecha = item.getString("fechaInicio"),
+                            actividad= "Rutina",
+                            detalle= item.getString("idDetallePlan"),
+                            state = item.getString("estado"),
+                            )
+                        )
+                    }
+                }
+                onComplete(list)
+            },
+            Response.ErrorListener {
+                onError(it)
+                Log.d("Error get Calendario", it.message.toString())
+            },
+        ))
+    }
+
     fun putAsignarDetallePlan(
         asignarDetallePlan: AsignarDetallePlan,
         onComplete: (resp: Boolean) -> Unit,
@@ -115,15 +149,8 @@ class EntrenamientoService constructor(context: Context)  {
             "distanciaRecorrida" to asignarDetallePlan.distanciaRecorrida,
         )
         Log.i("EntrenamientoService","putAsignarDetallePlan - ejecuta Put")
-        Log.i("EntrenamientoService","putAsignarDetallePlan - ids"+ asignarDetallePlan.ids)
-        Log.i("EntrenamientoService","putAsignarDetallePlan - ids"+ asignarDetallePlan.fechaInicio)
-        Log.i("EntrenamientoService","putAsignarDetallePlan - ids"+ asignarDetallePlan.fechaFin)
-        Log.i("EntrenamientoService","putAsignarDetallePlan - ids"+ asignarDetallePlan.calorias)
-        Log.i("EntrenamientoService","putAsignarDetallePlan - ids"+ asignarDetallePlan.velocidadMaxima)
-        Log.i("EntrenamientoService","putAsignarDetallePlan - ids"+ asignarDetallePlan.distanciaRecorrida)
-
         requestQueue.add (
-            putRequest("planentrenamiento/asignar-detalle-plan/"+asignarDetallePlan.ids, JSONObject(postParams),
+            putRequest("asignar-detalle-plan/"+asignarDetallePlan.ids, JSONObject(postParams),
                 Response.Listener<JSONObject> { response ->
 
                     var item: JSONObject? = null

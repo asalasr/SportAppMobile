@@ -4,26 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.CalendarioActivity">
+    tools:context=".ui.CalendarActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calendario"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"
-        android:textColor="@color/black"/>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="64dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_calendario"
+        android:layout_above="@+id/bottom_navigator"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottom_navigator"
         app:itemBackground="@color/purple_500"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu"
         android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
 
 </RelativeLayout>
