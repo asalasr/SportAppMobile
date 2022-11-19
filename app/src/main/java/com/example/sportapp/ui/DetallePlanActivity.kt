@@ -38,7 +38,7 @@ class DetallePlanActivity : AppCompatActivity() {
                 }
 
                 R.id.calendario -> {
-                    val objd = Intent(this, CalendarioActivity::class.java)
+                    val objd = Intent(this, CalendarActivity::class.java)
                     startActivity(objd)
                     true;
                 }
