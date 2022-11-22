@@ -16,7 +16,7 @@ import org.json.JSONArray
 class DetallePlanService constructor(context: Context) {
 
     companion object {
-        const val BASE_URL = "https://sportapp.azure-api.net"
+        const val BASE_URL = "https://planentrenamiento.azurewebsites.net/api/v1"
         var instance: DetallePlanService? = null
         fun getInstance(context: Context) =
             instance ?: synchronized(this) {
@@ -37,7 +37,7 @@ class DetallePlanService constructor(context: Context) {
     ) {
         Log.i("NetworkServices", "LLEGO ENDPOINT DetallePlan")
 
-        requestQueue.add(getRequest("/planentrenamiento/asignar-detalle-plan/deportista",
+        requestQueue.add(getRequest("/asignar-detalle-plan/deportista",
             Response.Listener<String> { response ->
                 Log.d("tagb", response)
                 val resp = JSONArray(response)
