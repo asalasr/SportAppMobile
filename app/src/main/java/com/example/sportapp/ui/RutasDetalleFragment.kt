@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -58,6 +59,11 @@ class RutasDetalleFragment : Fragment() {
         entrenarDia!!.text= "DIA "+ruta.title
         val entrenarEstado: TextView? = view?.findViewById(R.id.linkGoogle)
         entrenarEstado!!.text= ruta.linkGoogle
+
+        val mywebview : WebView? = view?.findViewById(R.id.weblinkgoogle)
+        if (mywebview != null) {
+            mywebview.loadUrl(ruta.linkGoogle)
+        }
 
         val urlImage: ImageView? = view?.findViewById(R.id.urlImage)
         Picasso.get().load(ruta?.urlImage).into(urlImage);
