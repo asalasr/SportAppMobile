@@ -17,7 +17,7 @@ import org.json.JSONObject
 
 class EntrenamientoService constructor(context: Context)  {
     companion object{
-        const val BASE_URL= "https://sportapp.azure-api.net/planentrenamiento/"
+        const val BASE_URL= "https://planentrenamiento.azurewebsites.net/api/v1/"
         var instance: EntrenamientoService? = null
         fun getInstance(context: Context) =
             instance ?: synchronized(this) {
