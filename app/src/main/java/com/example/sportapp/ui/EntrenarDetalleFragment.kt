@@ -1,5 +1,6 @@
 package com.example.sportapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -42,6 +43,13 @@ class EntrenarDetalleFragment : Fragment() {
         if (playPause != null) {
             playPause.setOnClickListener(View.OnClickListener {
                 guardarDia()
+            })
+        }
+        val verrutas: ImageButton?=view?.findViewById(R.id.verrutas)
+        if (verrutas != null) {
+            verrutas.setOnClickListener(View.OnClickListener {
+                // se llama el contexto para usar Intent ya que fragmento no lo hereda
+                requireContext().let { it.startActivity(Intent(it, RutasActivity::class.java)) }
             })
         }
 
