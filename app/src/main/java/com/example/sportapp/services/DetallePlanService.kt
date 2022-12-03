@@ -45,6 +45,10 @@ class DetallePlanService constructor(context: Context) {
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
                     Log.i("NetworkServices","LLEGO ENDPOINT DetallePlan")
+                    val estado:String = item.getString("estado")
+                    //if (estado.equals("Terminado")){
+
+
                     list.add(i, DetallePlan(
                             id = item.getString("id"),
                             idDeportista= item.getString("idDeportista"),
@@ -65,6 +69,7 @@ class DetallePlanService constructor(context: Context) {
                                 estado = item.getJSONObject("AsignarPlan").getString("estado"),
                             )
                         ))
+
                  }
                 onComplete(list)
             },

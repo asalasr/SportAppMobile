@@ -42,6 +42,12 @@ class DetallePlanActivity : AppCompatActivity() {
                     startActivity(objd)
                     true;
                 }
+
+                R.id.servicios -> {
+                    val objd = Intent(this, ServiciosActivity::class.java)
+                    startActivity(objd)
+                    true;
+                }
             }
             true
         }

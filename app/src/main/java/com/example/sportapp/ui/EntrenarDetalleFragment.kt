@@ -38,6 +38,10 @@ class EntrenarDetalleFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         Log.i("EntrenarDetalleFragment","onActivityCreated inicializa viewmodel")
 
+
+        plan= arguments?.get("plan") as AsignarDetallePlan
+
+
         val playPause: Button? = view?.findViewById(R.id.buttonGuardadDia)
 
         if (playPause != null) {
@@ -61,7 +65,7 @@ class EntrenarDetalleFragment : Fragment() {
             EntrenamientoViewModel::class.java
         )
 
-        plan= arguments?.get("plan") as AsignarDetallePlan
+
 
         val entrenarDia: TextView? = view?.findViewById(R.id.entrenarDia)
         entrenarDia!!.text= "DIA "+plan.numDia

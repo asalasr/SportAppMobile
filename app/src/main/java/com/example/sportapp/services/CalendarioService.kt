@@ -14,7 +14,7 @@ import org.json.JSONArray
 
 class CalendarioService constructor(context: Context)  {
     companion object{
-        const val BASE_URL_ENTRENAR= "https://sportapp.azure-api.net/planentrenamiento/"
+        const val BASE_URL_ENTRENAR= "https://planentrenamiento.azurewebsites.net/api/v1/"
         const val BASE_URL_EVENTOS= "https://gestorterceros.azurewebsites.net/api/v1/"
 
         var instance: CalendarioService? = null
@@ -73,7 +73,7 @@ class CalendarioService constructor(context: Context)  {
                         fecha = item.getJSONObject("event").getString("datatime").substring(0,10),
                         actividad= "Evento",
                         detalle= item.getJSONObject("event").getString("title"),
-                        state = item.getJSONObject("event").getString("state")
+                        state = "Planeado"//item.getJSONObject("event").getString("state")
 
 
                     ))}

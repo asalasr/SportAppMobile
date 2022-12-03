@@ -81,7 +81,7 @@ class CalendarFragment : Fragment() {
 
         //Se cargan las fechas
         for (dia in viewModel.calendariovm.value!!){
-            if (!diasList.contains(dia.fecha)){
+            if (!diasList.contains(dia.fecha) && dia.state.equals("Planeado")){
                 (diasList as ArrayList<String>).add(dia.fecha)
             }
         }
@@ -89,7 +89,7 @@ class CalendarFragment : Fragment() {
         for (dial in diasList){
             val agenda : MutableList<String> = ArrayList()
             for (dia in viewModel.calendariovm.value!!){
-                if(dial.contentEquals(dia.fecha)) {
+                if(dial.contentEquals(dia.fecha)  && dia.state.equals("Planeado")) {
                     agenda.add(dia.actividad + '-' + dia.detalle)
                 }
             }
